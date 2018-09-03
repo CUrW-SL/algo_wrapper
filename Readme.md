@@ -1,4 +1,5 @@
-#Algo Wrapper
+#Algo Wrapper 
+
 ##Introduction
 This package's intention is to provide a frame to define algorithms or data processings.
 There are 3 main classes IOProcessor, Configs, Algorithm. 
