@@ -12,11 +12,11 @@ class Algorithm(ABC):
         self.algo_config = config.get_algo_config()
         self.io = io_processor
 
-    def execute(self):
-        algo_input = self.io.get_input()
-        algo_output = self.algo(algo_input)
-        self.io.push_output(algo_output)
+    def execute(self, **dynamic_args):
+        algo_input = self.io.get_input(**dynamic_args)
+        algo_output = self.algo(algo_input, **dynamic_args)
+        self.io.push_output(algo_output, **dynamic_args)
 
     @abstractmethod
-    def algo(self, algo_input):
+    def algo(self, algo_input, **dynamic_args):
         pass

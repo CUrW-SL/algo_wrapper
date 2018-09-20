@@ -10,9 +10,9 @@ class IOProcessor(ABC):
         self.output_config = config.get_output_config()
 
     @abstractmethod
-    def get_input(self):
+    def get_input(self, **dynamic_args):
         pass
 
     @abstractmethod
-    def push_output(self, algo_output):
+    def push_output(self, algo_output, **dynamic_args):
         pass
