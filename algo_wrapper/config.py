@@ -2,12 +2,17 @@ import json
 
 
 class Config:
-    def __init__(self, json_config_file):
-        with open(json_config_file) as f:
-            json_config = json.load(f)
-            self.algo_config = json_config['algo_config']
-            self.input_config = json_config['input_config']
-            self.output_config = json_config['output_config']
+    def __init__(self, configs):
+        if isinstance(configs, dict):
+            self.algo_config = configs['algo_config']
+            self.input_config = configs['input_config']
+            self.output_config = configs['output_config']
+        else:
+            with open(configs) as f:
+                json_config = json.load(f)
+                self.algo_config = json_config['algo_config']
+                self.input_config = json_config['input_config']
+                self.output_config = json_config['output_config']
 
     def get_algo_config(self):
         return self.algo_config
